@@ -154,16 +154,6 @@ class _OnboardItemsState extends State<OnboardItems> {
   }
 
   Container dotIndicator(int index, BuildContext context) {
-    designCheck(int index) {
-      if (currentIndex != 0 && check.contains(currentIndex)) {
-        check.add(currentIndex);
-        print(check);
-      }
-    }
-
-    setState(() {
-      designCheck(currentIndex);
-    });
     return Container(
       height: 11,
       width: 105,
