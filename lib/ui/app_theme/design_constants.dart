@@ -77,6 +77,9 @@ class _OnboardItemsState extends State<OnboardItems> {
                   screenInfo.length, (index) => dotIndicator(index, context))
             ],
           ),
+          const SizedBox(
+            height: 92,
+          ),
           Container(
             alignment: Alignment.center,
             height: 580,
