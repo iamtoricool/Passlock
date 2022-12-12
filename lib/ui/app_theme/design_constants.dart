@@ -63,7 +63,6 @@ class OnboardItems extends StatefulWidget {
 
 class _OnboardItemsState extends State<OnboardItems> {
   int currentIndex = 0;
-  List<int> check = [0];
   @override
   Widget build(BuildContext context) {
     return Padding(
