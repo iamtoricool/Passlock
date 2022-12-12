@@ -1,12 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:nb_utils/nb_utils.dart';
 import 'package:passblock/ui/app_theme/app_text_constants.dart';
 import 'package:passblock/ui/app_theme/theme_colors.dart';
 
 class GetTextButton extends StatelessWidget {
-  const GetTextButton({super.key, required this.isFilled, this.title});
+  const GetTextButton(
+      {super.key, required this.isFilled, this.title, this.borderColorColor});
   final bool isFilled;
   final String? title;
+  final Colors? borderColorColor;
 
   @override
   Widget build(BuildContext context) {
@@ -166,6 +169,32 @@ class _OnboardItemsState extends State<OnboardItems> {
               : ThemeColors().whiteColor,
           borderRadius: BorderRadius.circular(10),
           border: Border.all(color: ThemeColors().darkColor, width: 1)),
+    );
+  }
+}
+
+class GetTextField extends StatelessWidget {
+  const GetTextField(
+      {super.key, required this.textFieldType, this.controller, this.label});
+  final TextFieldType textFieldType;
+  final TextEditingController? controller;
+  final String? label;
+  @override
+  Widget build(BuildContext context) {
+    return AppTextField(
+      textFieldType: textFieldType,
+      controller: controller,
+      decoration: InputDecoration(
+          focusedBorder: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(10),
+              borderSide: BorderSide(color: ThemeColors().darkColor)),
+          label: label == null ? const Text('') : Text('$label'),
+          labelStyle: GoogleFonts.poppins(
+              fontSize: 18, color: ThemeColors().greyLighterColor),
+          filled: true,
+          border: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(10),
+              borderSide: BorderSide(color: ThemeColors().darkColor))),
     );
   }
 }

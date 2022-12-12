@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:passblock/ui/app_theme/design_constants.dart';
+import 'package:passblock/ui/screens/register_screen.dart';
 
 class OnboardScreen extends StatefulWidget {
   const OnboardScreen({super.key});
@@ -15,18 +16,27 @@ class _OnboardScreenState extends State<OnboardScreen> {
       body: SafeArea(
         child: Column(
           children: [
-            OnboardItems(),
-            GetTextButton(
-              isFilled: true,
-              title: 'Register',
+            const OnboardItems(),
+            const Spacer(),
+            InkWell(
+              onTap: () => Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const RegisterScreen(),
+                  )),
+              child: const GetTextButton(
+                isFilled: true,
+                title: 'Register',
+              ),
             ),
             const SizedBox(
               height: 18,
             ),
-            GetTextButton(
+            const GetTextButton(
               isFilled: false,
               title: 'Already have an account',
-            )
+            ),
+            const Spacer(),
           ],
         ),
       ),
